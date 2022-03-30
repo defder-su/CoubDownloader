@@ -9,7 +9,7 @@ else
     cd "~$SUBDIR"
     LIST="../$1.txt"
     LOGFILE="../$1.log"
-    cat $LIST | xargs -L1 wget --adjust-extension --timeout=10 2>&1 | tee -a $LOGFILE
+    cat $LIST | xargs -L1 wget --adjust-extension --tries=3 --timeout=10 2>&1 | tee -a $LOGFILE
     FILESCOUNT=$(ls *.htm* | wc -l)
     RECORDSCOUNT=$(cat $LIST | wc -l)
     echo "$FILESCOUNT/$RECORDSCOUNT files" | tee -a $LOGFILE

@@ -4,10 +4,10 @@ if [ -e "$LIST.txt" ]; then
     echo "$LIST.txt already exist"
 else
     ./coub.py -c $1 --write-list "$LIST.txt"
-    if [ $? -eq 0 ]; then
-        ./save $LIST
-    else
-        exit 1
-    fi
+fi
+if [ -e "$LIST.txt" ]; then
+    ./save $LIST
+else
+    exit 1
 fi
 

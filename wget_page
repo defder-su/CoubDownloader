@@ -1,0 +1,1 @@
+wget --output-document="$(basename $1).html" --tries=5 --timeout=20 --no-clobber $1

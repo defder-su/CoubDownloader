@@ -1,15 +1,16 @@
 SUBDIR="$1"
 if [ -e "$SUBDIR" ]; then
     echo "$SUBDIR already exist (completely downloaded, but when?)"
-elif [ -e "~$SUBDIR" ]; then
-    echo "~$SUBDIR already exist (incompletely downloaded), you should remove it"
-    exit 1
 else
-    mkdir "~$SUBDIR"
+    if [ -e "~$SUBDIR" ]; then
+        echo "~$SUBDIR already exist (incompletely downloaded)"
+    else
+        mkdir "~$SUBDIR"
+    fi
     cd "~$SUBDIR"
     LIST="../$1.txt"
     LOGFILE="../$1.log"
-    cat $LIST | xargs -L1 wget --adjust-extension --tries=3 --timeout=10 2>&1 | tee -a $LOGFILE
+    cat $LIST | xargs -L1 ../wget_page 2>&1 | tee -a $LOGFILE
     FILESCOUNT=$(ls *.htm* | wc -l)
     RECORDSCOUNT=$(cat $LIST | wc -l)
     echo "$FILESCOUNT/$RECORDSCOUNT files" | tee -a $LOGFILE

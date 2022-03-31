@@ -13,7 +13,7 @@ else
     FILESCOUNT=$(ls *.htm* | wc -l)
     RECORDSCOUNT=$(cat $LIST | wc -l)
     echo "$FILESCOUNT/$RECORDSCOUNT files" | tee -a $LOGFILE
-    ../coub.py -k -r 1 -l $LIST 2>&1 | tee -a $LOGFILE
+    ../coub.py -k -r 1 -l $LIST --use-archive saved.txt 2>&1 | tee -a $LOGFILE
     if [ $? -eq 0 ]
     then
         cd ..

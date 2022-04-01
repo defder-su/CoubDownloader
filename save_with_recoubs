@@ -1,6 +1,6 @@
 CMDDIR="$(cd "$(dirname "$0")" && pwd)"
 
-$CMDDIR/save $1
+$CMDDIR/check "$1"
 
 SUBDIR="$1"
 if [ -e "$SUBDIR" ]; then

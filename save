@@ -1,10 +1,10 @@
 CMDDIR="$(cd "$(dirname "$0")" && pwd)"
 SUBDIR="$1"
 if [ -e "$SUBDIR" ]; then
-    echo "$SUBDIR already exist (completely downloaded, but when?)"
+    echo "$SUBDIR already exists (completely downloaded, but when?)"
 else
     if [ -e "~$SUBDIR" ]; then
-        echo "~$SUBDIR already exist (incompletely downloaded)"
+        echo "Saving to ~$SUBDIR"
     else
         mkdir "~$SUBDIR"
     fi

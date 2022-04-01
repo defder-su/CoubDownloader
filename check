@@ -1,0 +1,10 @@
+CMDDIR="$(cd "$(dirname "$0")" && pwd)"
+SUBDIR="$1"
+if [ -e "$SUBDIR" ]; then
+    if [ -e "~$SUBDIR" ]; then
+        echo "$SUBDIR and ~$SUBDIR exist both"
+        exit 1
+    fi
+    mv "$SUBDIR" "~$SUBDIR"
+fi
+$CMDDIR/save "$1"

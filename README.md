@@ -11,6 +11,9 @@ There are new bash commands:
 * `./save_hot` saves coubs from the hot section
 * `./save_all` saves random coubs again and again
 
+And also for saving recoubs (needs (https://stedolan.github.io/jq/download/) and [htmlq](https://github.com/mgdm/htmlq)):
+* `./save_with_recoubs example` saves coubs, then saves their recoubs
+
 # RIP Coub
 
 Coub will soon be gone, so now is the time to download your favorite coubs, before it's too late.

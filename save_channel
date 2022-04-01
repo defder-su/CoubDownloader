@@ -1,5 +1,6 @@
 LIST="channel_$1"
-wget https://coub.com/$1 --output-document "$LIST.htm"
+#open "https://coub.com/$1"
+wget https://coub.com/$1 --output-document "$LIST.html"
 if [ -e "$LIST.txt" ]; then
     echo "$LIST.txt already exist"
 else

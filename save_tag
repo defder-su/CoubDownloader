@@ -1,4 +1,8 @@
 LIST="tag_$1"
+URL="https://coub.com/tags/$1"
+printf "[InternetShortcut]\nURL=$URL" > "$LIST.url"
+wget "$URL" --output-document "$LIST.html"
+./save_recoubs_by_html $LIST
 if [ -e "$LIST.txt" ]; then
     echo "$LIST.txt already exist"
 else

@@ -11,8 +11,14 @@ There are new bash commands:
 * `./save_hot` saves coubs from the hot section
 * `./save_all` saves random coubs again and again
 
+For resuming:
+
+* `./check example` checks (saves or resumes saving) coubs by specified list example.txt
+
 And also for saving recoubs (needs (https://stedolan.github.io/jq/download/) and [htmlq](https://github.com/mgdm/htmlq)):
-* `./save_with_recoubs example` saves coubs, then saves their recoubs
+
+* `./save_recoubs_by_html file` saves recoubs which found in file.html
+* `./save_with_recoubs example` checks coubs, then saves their recoubs
 
 # RIP Coub
 

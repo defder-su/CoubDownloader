@@ -2,5 +2,5 @@ FN="$(basename $1).html"
 if [ -s "$FN" ]; then
     echo "$FN exists"
 else
-    wget --adjust-extension --tries=5 --timeout=20 $1
+    wget --output-document=$FN --tries=5 --timeout=20 $1
 fi

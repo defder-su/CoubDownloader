@@ -18,7 +18,7 @@ For resuming:
 And also for saving recoubs (needs [jq](https://stedolan.github.io/jq/download/) and [htmlq](https://github.com/mgdm/htmlq)):
 
 * `./save_recoubs_by_html file` saves recoubs which found in file.html
-* `./save_with_recoubs example` checks coubs, then saves their recoubs
+* **`./save_with_recoubs example`** checks coubs, then saves their recoubs
 
 # CoubDownloader
 

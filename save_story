@@ -3,4 +3,4 @@ URL="https://coub.com/stories/$1"
 printf "[InternetShortcut]\nURL=$URL" > "$LIST.url"
 wget "$URL" --output-document "$LIST.html"
 echo "Downloaded just list, not coubs"
-./save_recoubs_by_html $LIST
+./save_recoubs_by_html "$LIST"

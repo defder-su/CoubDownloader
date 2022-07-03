@@ -11,12 +11,12 @@ else
     cd "~$SUBDIR"
     LIST="../$1.txt"
     LOGFILE="../$1.log"
-    cat $LIST | xargs -L1 $CMDDIR/wget_page 2>&1 | tee -a $LOGFILE
+    cat "$LIST" | xargs -L1 $CMDDIR/wget_page 2>&1 | tee -a "$LOGFILE"	#TODO: optimize it, xargs works slowly
     FILESCOUNT=$(ls *.htm* | wc -l)
-    RECORDSCOUNT=$(cat $LIST | wc -l)
-    echo "$FILESCOUNT/$RECORDSCOUNT files" | tee -a $LOGFILE
-    $CMDDIR/coub.py -k -n -r 1 -l $LIST --use-archive saved.txt 2>&1 | tee -a $LOGFILE
-    torsocks $CMDDIR/coub.py -k -n -r 1 -l $LIST --use-archive saved.txt 2>&1 | tee -a $LOGFILE
+    RECORDSCOUNT=$(cat "$LIST" | wc -l)
+    echo "$FILESCOUNT/$RECORDSCOUNT files" | tee -a "$LOGFILE"
+    $CMDDIR/coub.py -k -n -r 1 -l "$LIST" --use-archive saved.txt 2>&1 | tee -a "$LOGFILE"
+    torsocks $CMDDIR/coub.py -k -n -r 1 -l "$LIST" --use-archive saved.txt 2>&1 | tee -a "$LOGFILE"
     if [ $? -eq 0 ]
     then
         cd ..

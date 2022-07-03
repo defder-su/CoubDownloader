@@ -6,7 +6,7 @@ else
     ./coub.py --hot --write-list "$LIST.txt"
     if [ $? -eq 0 ]
     then
-        ./save $LIST
+        ./save "$LIST"
     else
         exit 1
     fi

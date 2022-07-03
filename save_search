@@ -4,7 +4,7 @@ if [ -e "$LIST.txt" ]; then
 else
     ./coub.py -e $1 --write-list "$LIST.txt"
     if [ $? -eq 0 ]; then
-        ./save $LIST
+        ./save "$LIST"
     else
         exit 1
     fi

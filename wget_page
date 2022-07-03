@@ -1,6 +1,6 @@
-FN="$(basename $1).html"
+FN="$(basename """$1""").html"
 if [ -s "$FN" ]; then
     echo "$FN exists"
 else
-    wget --output-document=$FN --tries=5 --timeout=20 $1
+    wget --output-document="$FN" --tries=5 --timeout=20 "$1"
 fi

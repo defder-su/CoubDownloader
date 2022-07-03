@@ -5,7 +5,11 @@ $CMDDIR/check "$1"
 SUBDIR="$1"
 if [ -e "$SUBDIR" ]; then
     cd "$SUBDIR"
-    ls *.html | cut -f 1 -d '.' | xargs -L1 $CMDDIR/save_recoubs_by_html
+    #ls *.html | cut -f 1 -d '.' | xargs -L1 $CMDDIR/save_recoubs_by_html
+    for I in *.html
+    do
+	$CMDDIR/save_recoubs_by_html "${I%.html}"
+    done
     cd ..
 else
     exit 1

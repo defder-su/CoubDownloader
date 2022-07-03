@@ -1,9 +1,13 @@
 CMDDIR="$(cd "$(dirname "$0")" && pwd)"
 FN="recoubs_$1.txt"
-cat $1.html | htmlq -t '#coubPageCoubJson' | jq --raw-output '.. | .coub_permalink? | strings' | sed -e "s/.*/https:\/\/coub.com\/view\/&/" > $FN
+cat "$1.html" | htmlq -t '#coubPageCoubJson' | jq --raw-output '.. | .coub_permalink? | strings' | sed -e "s/.*/https:\/\/coub.com\/view\/&/" > "$FN"
 if [ -s "$FN" ]; then
     echo "Found recoubs for $1"
-    $CMDDIR/save_with_recoubs recoubs_$1
+    if [[ $(pwd) != *"/recoubs_$1"* ]]; then
+	$CMDDIR/save_with_recoubs "recoubs_$1"
+    else
+	echo "recoubs_$1 are already processing"
+    fi
 else
     rm "$FN"
 fi

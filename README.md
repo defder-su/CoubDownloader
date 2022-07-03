@@ -1,4 +1,4 @@
-# What's new in the last days
+# What's new in the days before Apr 1 2022
 
 There are new bash commands:
 
@@ -20,7 +20,7 @@ And also for saving recoubs (needs [jq](https://stedolan.github.io/jq/download/)
 * `./save_recoubs_by_html file` saves recoubs which found in file.html
 * `./save_with_recoubs example` checks coubs, then saves their recoubs
 
-# RIP Coub
+# RIP Coub (actually no)
 
 Coub will soon be gone, so now is the time to download your favorite coubs, before it's too late.
 

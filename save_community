@@ -2,13 +2,13 @@ LIST="community_$1"
 URL="https://coub.com/$1"
 printf "[InternetShortcut]\nURL=$URL" > "$LIST.url"
 wget "$URL" --output-document "$LIST.html"
-./save_recoubs_by_html $LIST
+./save_recoubs_by_html "$LIST"
 if [ -e "$LIST.txt" ]; then
     echo "$LIST.txt already exist"
 else
-    ./coub.py -m $1 --write-list "$LIST.txt"
+    ./coub.py -m "$1" --write-list "$LIST.txt"
     if [ $? -eq 0 ]; then
-        ./save $LIST
+        ./save "$LIST"
     else
         exit 1
     fi
